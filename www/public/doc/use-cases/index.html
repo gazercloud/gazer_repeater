@@ -1,0 +1,98 @@
+﻿{#header.html#}
+
+{%title=Gazer - Use cases%}
+{%description=Use cases of Gazer. DIY Electronics Projects, Software Development, ...%}
+
+<style>
+    div.unit_types_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    div.unit_types_unit {
+        display: inline-block;
+
+        border-radius: 5px;
+        background-color: #222222;
+        margin: 10px;
+        text-align: center;
+    }
+    div.unit_types_unit:hover {
+        background-color: #181818;
+
+    }
+    a.unit_types_unit_link {
+        text-decoration: none;
+    }
+    div.unit_types_content {
+        padding: 10px;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    div.unit_types_content_img {
+
+    }
+    div.unit_types_content_text {
+        margin-top: 10px;
+        font-size: 1.3em;
+        text-decoration: underline;
+    }
+    div.unit_types_content_desc {
+        margin-top: 10px;
+    }
+    img.unit_types_content_image {
+        opacity: 50%;
+        margin-right: 10px;
+        sepia(50%);
+        max-width: 280px;
+        width: 280px;
+    }
+
+</style>
+
+
+<h1>Use cases</h1>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/use-cases/diy-monitoring/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/use-cases/diy-monitoring.jpg"/></div>
+                <div class="unit_types_content_text">DIY Projects Monitoring</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/use-cases/system-administration/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/use-cases/system-administration.jpg"/></div>
+                <div class="unit_types_content_text">System Administration</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/use-cases/software-development/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/use-cases/software-development.jpg"/></div>
+                <div class="unit_types_content_text">Software Development</div>
+                <div class="unit_types_content_desc">Finding resource leaks, testing software and monitoring internal parameters</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/use-cases/whatever-you-want/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/use-cases/whatever-you-want.jpg"/></div>
+                <div class="unit_types_content_text">Whatever You Want</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{#bottom.html#}

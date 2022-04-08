@@ -1,0 +1,66 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - CGI Key Value%}
+{%description=Gazer - Unit for receiving data from an external program in Key=Value format%}
+
+<h1 class="sensor_name">CGI Key=Value Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit is similar to <a href="/sensors/general/cgi">CGI-unit</a>, but it can parse data by sorting it out into data elements.
+    The unit requires each data item to be written on a separate line.
+    The item name is placed before the equal sign(=), and the value is placed after it.
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Command
+        </div>
+        <div class="sensor_parameter_description">
+            The absolute path to the file to execute
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Arguments
+        </div>
+        <div class="sensor_parameter_description">
+            Arguments for the specified command
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_data_items">
+    The sensor generates a different number of items depending on the input data.
+    For example: an external program returned two lines with the following content:
+    <pre>
+        item1=42
+        item2=42.42
+    </pre>
+    As a result, two elements with the corresponding values will be set.
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="cgi-key-value unit screenshot" alt="cgi-key-value unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="cgi-key-value unit configuration" alt="cgi-key-value unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Content of main.bat</div>
+<img src="main_bat.png" title="cgi-key-value unit configuration - main.bat" alt="cgi-key-value unit configuration - main.bat" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/general/unit_general_cgi_key_value" target="_blank">Source code of the unit</a>
+</div>
+
+{#bottom.html#}

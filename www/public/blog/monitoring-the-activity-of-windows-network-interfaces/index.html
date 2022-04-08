@@ -1,0 +1,35 @@
+{#header.html#}
+
+{%title=Monitoring the activity of Windows network interfaces%}
+{%description=Monitoring the activity of Windows network interfaces%}
+
+<h1>Monitoring the activity of Windows network interfaces</h1>
+<div>
+    One of the interesting uses of the GazerNode is to monitor the intensity
+    of use of the network interfaces of the operating system.
+    This can determine what time of day the main traffic is coming.
+    This can be useful for determining the reasons for the load on the network infrastructure.
+    The GazerNode has a special unit that has no settings.
+    You just need to add it to the system and it will record the speed of
+    the current traffic in the context of network interfaces every second.
+</div>
+
+<div class="dark_block">
+    <img alt="Windows Network Monitoring - Chart Screenshot" src="windows-network-monitoring.png" style="width: 100%; display: block; max-width: 700px; margin: 10px auto 30px auto;" />
+</div>
+
+<h2>Tech details</h2>
+
+<div>
+    To obtain information about network interfaces, the API call GetIfEntry2 is used, which fills the structure MIB_IF_ROW2.
+    Only some of the elements of this structure are written to the data items:
+    <table style="border:1px solid antiquewhite">
+        <tr><td>InOctets</td><td>The number of bytes of data received without errors through this interface. This value includes bytes in unicast, broadcast, and multicast packets.</td></tr>
+        <tr><td>OutOctets</td><td>The number of bytes of data transmitted without errors through this interface. This value includes bytes in unicast, broadcast, and multicast packets.</td></tr>
+    </table>
+</div>
+
+<h2>Relevant Sensors</h2>
+<li><a href="/unit-types/windows/network/">Windows Network Unit</a></li>
+
+{#bottom.html#}

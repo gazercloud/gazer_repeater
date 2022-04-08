@@ -1,0 +1,110 @@
+{#header.html#}
+
+{%title=Track CPU and Memory Usage Per Process%}
+{%description=Using Gazer, you can track CPU and memory usage per process.%}
+
+<h1>Track CPU and Memory Usage Per Process</h1>
+
+<div>
+    Using Gazer, you can track:
+    <li>CPU usage;</li>
+    <li>Memory usage;</li>
+    <li>Count of GDI objects;</li>
+    <li>Count of Threads;</li>
+    <li>and many others parameters ...</li>
+</div>
+
+<div style="margin-top: 10px">To organize monitoring of resource usage, you need to do the following:</div>
+
+<div>
+    <li>Install <a href="/download/" target="_blank">GazerNode</a></li>
+    <li>Add a <a href="/unit-types/computer/process/" target="_blank">Process Unit</a> to the configuration</li>
+    <li>Watch the metrics of the specified process</li>
+</div>
+
+<div style="text-align: center; margin: 20px">
+    <img alt="Adding Process Monitoring Unit - Scheme" title="Adding Process Monitoring Unit - Scheme" src="/blog/track-cpu-and-memory-usage-per-process/add-process-monitoring-unit.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+</div>
+
+<h2>Process filtering</h2>
+<div>
+    <div>Format of Process Name field: <span style="font-size: 1.2em">ProcessName#ProcessID</span></div>
+    <div>In order to monitor a process with a specific name, you need to specify its full name (e.g. "notepad.exe").</div>
+    <div>In this case, the unit looks for the first process with the specified name.</div>
+    <div>If you specify the process identifier along with the name (e.g. "notepad.exe#1154"), then the unit will also search by identifier.</div>
+    <div>Also, you can specify only the process ID ((e.g. "#1154")), in which case the unit will hard-follow the process with this ID.</div>
+</div>
+
+<div style="text-align: center; margin: 20px">
+    <img alt="CPU Usage Chart - Process Monitoring" title="CPU Usage Chart - Process Monitoring" src="/blog/track-cpu-and-memory-usage-per-process/chart-cpu-usage.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+</div>
+
+<h2>Finding memory and resource leaks</h2>
+<div>
+    Resource usage graphs will not tell you the real cause of the leaks.
+    But they can help you understand at what time this leak occurs and compare it with other parameters.
+</div>
+<div>
+    For example, you have some memory leak and you can see in the graph that it correlates with the increase in the number of threads in the process.
+    Preliminary conclusion: the required memory is allocated in dynamically created threads.
+    This is a very simple example, but it gives you an idea of what to do in situations like this.
+</div>
+
+<div style="text-align: center; margin: 20px">
+    <img alt="Process - Group Of Metrics" title="Process - Group Of Metrics" src="/blog/track-cpu-and-memory-usage-per-process/chart-process-resources-group.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+</div>
+
+<h2>Long Term Monitoring</h2>
+<div>
+    GazerNode can also be useful for long-term software testing, collecting metrics for CPU usage or operating system resources.
+</div>
+
+<h2>List Of Metrics</h2>
+<div style="font-size: 0.8em">
+
+    <table>
+        <tr><td>Metric</td><td>Using API</td><td>UOM</td></tr>
+        <tr><td>Common/Name</td><td></td><td></td></tr>
+        <tr><td>Common/ProcessID</td><td></td><td></td></tr>
+        <tr><td>Main/Working Set Size</td><td>GetProcessMemoryInfo</td><td>KB</td></tr>
+        <tr><td>Main/Thread Count</td><td>CreateToolhelp32Snapshot</td><td></td></tr>
+        <tr><td>Main/Handle Count</td><td>GetProcessHandleCount</td><td></td></tr>
+        <tr><td>Main/GDI Objects</td><td>GetGuiResources</td><td></td></tr>
+        <tr><td>Main/GDI Objects Peak</td><td>GetGuiResources</td><td></td></tr>
+        <tr><td>Main/User Objects</td><td>GetGuiResources</td><td></td></tr>
+        <tr><td>Main/User Objects Peak</td><td>GetGuiResources</td><td></td></tr>
+        <tr><td>Operations/Read Operation Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>Operations/Read Transfer Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>Operations/Write Operation Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>Operations/Write Transfer Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>Operations/Other Operation Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>Operations/Other Transfer Count</td><td>GetProcessIoCounters</td><td></td></tr>
+        <tr><td>CPU/Kernel Mode Time</td><td>GetProcessTimes</td><td>ms</td></tr>
+        <tr><td>CPU/User Mode Time</td><td>GetProcessTimes</td><td>ms</td></tr>
+        <tr><td>CPU/Usage</td><td>GetProcessTimes</td><td>%</td></tr>
+        <tr><td>CPU/Usage Kernel</td><td>GetProcessTimes</td><td>%</td></tr>
+        <tr><td>CPU/Usage User</td><td>GetProcessTimes</td><td>%</td></tr>
+        <tr><td>Memory/Page Faults</td><td>GetProcessMemoryInfo</td><td></td></tr>
+        <tr><td>Memory/Peak Working SetSize</td><td>GetProcessMemoryInfo</td><td>KB</td></tr>
+        <tr><td>Memory/Private Usage</td><td>GetProcessMemoryInfo</td><td>KB</td></tr>
+    </table>
+
+</div>
+
+<div style="text-align: center; margin: 20px">
+    <img alt="Screenshot of Unit Process / DataItems" title="Screenshot of Unit Process / DataItems" src="/blog/track-cpu-and-memory-usage-per-process/process-monitoring-dataitems.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+</div>
+
+<h2>Using Win32 API</h2>
+<div>
+    To obtain information about the process, GazerNode uses the following API calls:
+    <li>CreateToolhelp32Snapshot</li>
+    <li>Process32First</li>
+    <li>Process32Next</li>
+    <li>OpenProcess</li>
+    <li>GetProcessMemoryInfo</li>
+    <li>GetProcessHandleCount</li>
+    <li>GetProcessIoCounters</li>
+    <li>GetGuiResources</li>
+</div>
+{#bottom.html#}

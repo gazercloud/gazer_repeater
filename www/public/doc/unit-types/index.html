@@ -1,0 +1,252 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit Types%}
+{%description=Gazer - List of Unit Types%}
+
+<style>
+    div.unit_types_container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    div.unit_types_unit {
+        display: inline-block;
+        border: 1px solid #2278B5;
+        border-radius: 5px;
+        background-color: #222222;
+        margin: 10px;
+        text-align: center;
+    }
+    div.unit_types_unit:hover {
+        background-color: #181818;
+        border: 1px solid #D27607;
+    }
+    a.unit_types_unit_link {
+        text-decoration: none;
+    }
+    div.unit_types_content {
+        padding: 10px;
+        min-width: 200px;
+        max-width: 200px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    div.unit_types_content_img {
+
+    }
+    div.unit_types_content_text {
+
+    }
+
+    img.unit_types_content_image {
+        filter: invert(100%); opacity: 50%; margin-right: 10px; sepia(50%)
+    }
+
+</style>
+
+<h1>Unit types</h1>
+
+<h2>File System Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/files/file-content/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_file_file_content.png"/></div>
+                <div class="unit_types_content_text">File Content</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/files/file-size/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_file_file_size.png"/></div>
+                <div class="unit_types_content_text">File Size</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>General Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/general/cgi/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_general_console.png"/></div>
+                <div class="unit_types_content_text">CGI</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/general/cgi-key-value/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_general_console_key_value.png"/></div>
+                <div class="unit_types_content_text">CGI Key=Value</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/general/hhgttg/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_general_hhgttg.png"/></div>
+                <div class="unit_types_content_text">HHGTTG</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/general/signal-generator/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_general_signal_generator.png"/></div>
+                <div class="unit_types_content_text">Signal Generator</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/general/manual-items/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_general_manual_items.png"/></div>
+                <div class="unit_types_content_text">Manual Items</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Network Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/network/ping/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_network_ping.png"/></div>
+                <div class="unit_types_content_text">Ping</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/network/tcp-connect/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_network_tcp_connect.png"/></div>
+                <div class="unit_types_content_text">TCP-Connect</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/network/json-requester/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_network_json_requester.png"/></div>
+                <div class="unit_types_content_text">JSON Requester</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/network/ssl/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_network_ssl.png"/></div>
+                <div class="unit_types_content_text">SSL</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/network/tcp-telnet-control/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_network_tcp_telnet_control.png"/></div>
+                <div class="unit_types_content_text">TCP Telnet Control</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Serial Port Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/serial-port/serial-port-key-value/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_serial_port_serial_port_key_value.png"/></div>
+                <div class="unit_types_content_text">Serial Port Key=Value</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Computer Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/computer/memory/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_computer_memory.png"/></div>
+                <div class="unit_types_content_text">Memory</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/computer/process/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_computer_process.png"/></div>
+                <div class="unit_types_content_text">Process</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/computer/network/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_computer_network.png"/></div>
+                <div class="unit_types_content_text">Network</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/computer/network-interface/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_computer_network_interface.png"/></div>
+                <div class="unit_types_content_text">Network Interface</div>
+            </div>
+        </a>
+    </div>
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/computer/storage/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_computer_storage.png"/></div>
+                <div class="unit_types_content_text">Storage</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>Database Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/databases/postgresql/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_database_postgreesql.png"/></div>
+                <div class="unit_types_content_text">PostgreSQL</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<h2>RaspberryPI Units</h2>
+
+<div class="unit_types_container">
+    <div class="unit_types_unit">
+        <a href="/doc/unit-types/raspberrypi/cpu-temperature/" class="unit_types_unit_link">
+            <div class="unit_types_content">
+                <div class="unit_types_content_img"><img class="unit_types_content_image" src="/img/units_icons/unit_raspberry_pi_cpu_temrature.png"/></div>
+                <div class="unit_types_content_text">RaspberryPI CPU Temperature</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+{#bottom.html#}

@@ -1,0 +1,377 @@
+{#header.html#}
+
+{%title=Gazer - Data Item%}
+{%description=Gazer - Data Item%}
+
+<main>
+    <div class="wrapper" style="max-width: 600px; margin-top: 40px;">
+        <div class="gazer_item_block">
+            <div class="gazer_item_top" id="content_block" style="margin-bottom: 40px;"></div>
+            <div class="gazer_item_bottom">
+                <div class="dark_block" style="margin-left: 5px; font-size: 14px; color: #777777;">
+                    Data latency can be 1 to 3 seconds
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+
+    function isFloat(value) {
+        let er = /^-?[0-9\.]+$/;
+        return er.test(value);
+    }
+
+    function tryFormatNumber(value) {
+        if (isFloat(value)) {
+            return new Intl.NumberFormat().format(value)
+        } else {
+        }
+        return value
+    }
+
+    function makeContentAsTable(items) {
+        let itemsHTML = ""
+        itemsHTML = "<table style='width: 100%'>"
+        itemsHTML += "<tr><td>Name</td><td>Value</td></tr>"
+        items.forEach((el) => {
+            itemsHTML += "<tr><td id=\"item_name_" + el.n + "\">" + el.n + "</td><td id=\"item_value_" + el.n + "\">" + el.v + "</td></tr>"
+        })
+        itemsHTML += "</table>"
+        return itemsHTML
+    }
+
+    function convertUTCDateToLocalDate(date) {
+        var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+
+        var offset = date.getTimezoneOffset() / 60;
+        var hours = date.getHours();
+
+        newDate.setHours(hours - offset);
+
+        return newDate;
+    }
+
+    function getChannel() {
+        const query = window.location.pathname
+        const parts = query.split('/');
+        if (parts.length > 1) {
+            return parts[parts.length - 2]
+        }
+        return ""
+    }
+
+    function getItem() {
+        //return ".service/name"
+        const query = window.location.pathname
+        const parts = query.split('/');
+        if (parts.length > 1) {
+            return window.atob(parts[parts.length - 1])
+        }
+        return ""
+    }
+
+    function getHashVariable(variable) {
+        const query = window.location.hash.substring(1);
+        const vars = query.split('&');
+        //console.log(vars)
+        for (let i = 0; i < vars.length; i++) {
+            const pair = vars[i].split('=');
+            //console.log(pair[0])
+            //console.log(pair[1])
+            if (decodeURIComponent(pair[0]) === variable) {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        //console.log('Query variable %s not found', variable);
+    }
+
+    function profileLoadItems() {
+        const acc = getChannel()
+        const elContent = document.getElementById("items")
+    }
+
+
+</script>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script>
+    const e = React.createElement;
+    class ContentBlock extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {}
+        }
+
+        componentDidMount() {
+            this.processing = false
+            this.getItems()
+            this.timerID = setInterval(
+                () => this.tick(),
+                500
+            );
+        }
+
+        tick() {
+            this.getItems()
+        }
+
+        timeoutFetch(ms, promise) {
+            return new Promise((resolve, reject) => {
+                const timer = setTimeout(() => {
+                    reject(new Error('TIMEOUT'))
+
+                }, ms)
+
+                promise
+                    .then(value => {
+                        clearTimeout(timer)
+                        resolve(value)
+                    })
+                    .catch(reason => {
+                        clearTimeout(timer)
+                        reject(reason)
+                    })
+            })
+        }
+
+        parseData(result) {
+            let name = ""
+            let channelName = ""
+            result.is.map((item) => {
+                if (item.n === ".service/name") {
+                    channelName = item.v
+                }
+
+                if (item.n === getItem() && item.d !== "d") {
+                    let dateObj = new Date(item.t / 1000);
+                    dateObj = convertUTCDateToLocalDate(dateObj);
+                    let hours = dateObj.getUTCHours();
+                    let minutes = dateObj.getUTCMinutes();
+                    let seconds = dateObj.getSeconds();
+
+                    let timeString = hours.toString().padStart(2, '0') + ':' +
+                        minutes.toString().padStart(2, '0') + ':' +
+                        seconds.toString().padStart(2, '0');
+
+                    name = item.n
+
+                    this.setState({ value: item.v, uom: item.u, dt: item.t, timeString: timeString});
+                }
+
+                this.setState({channelName: channelName})
+
+                let newTitle = "Gazer - " + channelName + " - " + name
+                if (document.title !== newTitle) {
+                    document.title = newTitle
+                }
+            })
+            this.setState({ name: getItem() })
+        }
+
+        getItems() {
+            if (this.state === undefined || this.state == null) {
+                return
+            }
+
+            if (this.state.aux === undefined || this.state.aux == null || this.state.aux === "") {
+                this.getAux()
+                return
+            }
+
+            if (this.processing)
+                return
+            this.processing = true
+
+            this.timeoutFetch(1000, fetch("https://" + this.state.aux + "/api/request?fn=get&rj={\"ch\":\"" + getChannel() + "\"}")
+                .then(res => {
+                    this.processing = false
+                    if (res.status === 200) {
+                        res.blob().then((blobResult) => {
+                            blobResult.slice(0, 8).text().then((txtTypeRes) => {
+                                if (txtTypeRes === "G_JSON__") {
+                                    blobResult.slice(8).text().then((txtJsonResult) => {
+                                        let jsonResult = JSON.parse(txtJsonResult)
+                                        this.parseData(jsonResult)
+                                    })
+                                }
+                            })
+                        })
+                    } else {
+                        res.json().then(
+                            (result) => {
+                                this.setState({ st: null })
+                            }
+                        );
+                    }
+                })
+                .catch((err) => {
+                    this.processing = false
+                    console.log("aux error: ", err)
+                    this.setState({ aux: "" })
+                    //setErrorMessage("Unknown error")
+                }))
+        }
+
+        getAux() {
+            let router = "r001.gazer.cloud"
+            let array = new Uint32Array(10);
+            window.crypto.getRandomValues(array);
+            if ((array[5] % 100) > 50) {
+                router = "r002.gazer.cloud"
+            }
+
+            fetch("https://" + router + "/api/request?fn=get_aux")
+                .then(res => {
+                    if (res.status === 200) {
+                        res.json().then(
+                            (result) => {
+                                let name = ""
+                                let items = []
+                                let maxScores = -10000000000
+                                let maxScoresAux = ""
+                                result.workers.map((item) => {
+                                    if (item.scores >  maxScores) {
+                                        maxScores = item.scores
+                                        maxScoresAux = item.host
+                                    }
+                                })
+                                this.setState({ aux: maxScoresAux })
+                                console.log("Current Aux", maxScoresAux)
+                                this.getItems()
+                            }
+                        );
+                    } else {
+                        res.json().then(
+                            (result) => {
+                                this.setState({ aux: "" })
+                            }
+                        );
+                    }
+                })
+                .catch((err) => {
+                    //setErrorMessage("Unknown error")
+                })
+        }
+
+        componentWillUnmount() {
+            clearInterval(this.timerID);
+        }
+
+        makeContentAsBlocks(items, prefix) {
+            let itemsHTML = []
+            items.map((item) => {
+                let objItem = {}
+                objItem.fullName = p
+                objItem.name = shortName
+                objItem.value = values[p]
+                objItem.uom = uoms[p]
+                objItem.time = timeString
+                objItem.children = null
+                itemsHTML.push(objItem)
+            })
+            return itemsHTML
+        }
+
+        render() {
+            if (this.state !== undefined && this.state !== null) {
+                let content = []
+
+                content.push(e(
+                    'a',
+                    {key: "key_main_back_button",
+                        href: "/channel/" + getChannel(),
+                        style: {marginTop: "20pt", marginBottom: "40pt", textDecoration: "underline"}},
+                    'Back to the Channel'
+                ));
+
+                content.push(e(
+                    'h2',
+                    {key: "key_main_header", style: {margin: "10px", color: "#777777", textAlign: "center", fontSize: "24pt", marginBottom: "40pt", marginTop: "40px"}},
+                    this.state.channelName
+                ));
+
+                content.push(e(
+                    'h1',
+                    {key: "key_main_header", style: {margin: "10px", color: "#777777", textAlign: "center", fontSize: "24pt", marginBottom: "40pt", marginTop: "40px"}},
+                    this.state.name
+                ));
+
+                let res
+                if (this.state.value === undefined || this.state.value === null) {
+                    let waitingDataChildren = []
+                    waitingDataChildren.push(e(
+                        'div',
+                        {key: "key_main_waiting_for_data_text", style: {margin: "10px", fontSize: "24pt", color: "#AAA"}},
+                        "Waiting for data"
+                    ));
+                    waitingDataChildren.push(e(
+                        'img',
+                        {key: "key_main_waiting_for_data_img", src: "/channel_files/waiting.svg", style: {margin: "10px"}},
+                        null
+                    ));
+
+                    waitingDataChildren.map((item) => {
+                        content.push(item)
+                    })
+
+                    res = e(
+                        'div',
+                        {key: "key_main", style: {margin: "10px", textAlign: "center"}},
+                        content
+                    );
+                } else {
+
+                    {
+                        let item = e(
+                            'div',
+                            {key: "key_value", className: "dark_block gazer_item_value", style: {fontSize: "32pt", margin: "10pt", textAlign: "center", color: "#147F14", border: "1px solid #147F14", WebkitBorderRadius: "10pt", padding: "10pt"}},
+                            tryFormatNumber(this.state.value)
+                        );
+                        content.push(item)
+                    }
+                    {
+                        let item = e(
+                            'div',
+                            {key: "key_uom", style: {fontSize: "16pt", margin: "1px", textAlign: "center", color: "#777777"}},
+                            this.state.uom
+                        );
+                        content.push(item)
+                    }
+                    {
+                        let item = e(
+                            'div',
+                            {key: "key_dt", style: {fontSize: "16pt",margin: "1px", textAlign: "center", color: "#777777"}},
+                            this.state.timeString
+                        );
+                        content.push(item)
+                    }
+
+                    res = e(
+                        'div',
+                        {key: "key_main", style: {fontSize: "14pt"}},
+                        content
+                    );
+                }
+
+                return res
+            } else {
+                let res = e(
+                    'div',
+                    {key: "key_main", style: {fontSize: "12pt", maxWidth: "800px"}},
+                    ""
+                );
+
+                return res
+            }
+        }
+    }
+
+    const domContainer = document.querySelector('#content_block');
+    ReactDOM.render(e(ContentBlock), domContainer);
+
+</script>
+
+{#bottom.html#}

@@ -1,0 +1,68 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - Process%}
+
+<h1 class="sensor_name">Process Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit periodically gets information about the process and writes it to the corresponding data items.
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            ProcessName
+        </div>
+        <div class="sensor_parameter_description">
+            The name of the process to monitor. Example: explorer.exe
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_data_items">
+    The unit writes the measured parameters to the following data items:
+
+    <li>Common/Name</li>
+    <li>Common/ProcessID</li>
+    <li>Main/Working Set Size</li>
+    <li>Main/Thread Count</li>
+    <li>Main/Handle Count</li>
+    <li>Main/GDI Objects</li>
+    <li>Main/GDI Objects Peak</li>
+    <li>Main/User Objects</li>
+    <li>Main/User Objects Peak</li>
+    <li>Operations/Read Operation Count</li>
+    <li>Operations/Read Transfer Count</li>
+    <li>Operations/Write Operation Count</li>
+    <li>Operations/Write Transfer Count</li>
+    <li>Operations/Other Operation Count</li>
+    <li>Operations/Other Transfer Count</li>
+    <li>CPU/Kernel Mode Time</li>
+    <li>CPU/User Mode Time</li>
+    <li>CPU/Usage</li>
+    <li>CPU/Usage Kernel</li>
+    <li>CPU/Usage User</li>
+    <li>Memory/Page Faults</li>
+    <li>Memory/Peak Working SetSize</li>
+    <li>Memory/Private Usage</li>
+
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="process unit screenshot" alt="process unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="process unit configuration" alt="process unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+{#bottom.html#}

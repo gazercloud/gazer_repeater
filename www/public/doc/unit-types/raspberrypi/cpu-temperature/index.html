@@ -1,0 +1,51 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - RaspberryPI CPU Temperature%}
+{%description=Gazer - RaspberryPI CPU Temperature %}
+
+<h1 class="sensor_name">RaspberryPI CPU Temperature Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit gets the temperature of the processor and writes it to the corresponding item
+</div>
+
+
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities. Minimal size is 100 ms. Maximal size is 10000 ms (10 seconds). Optimal value of the parameter is 1000 (1 second).
+        </div>
+    </div>
+
+</div>
+
+<h2>Data Items</h2>
+
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Temperature
+        </div>
+        <div class="sensor_parameter_description">
+            Temperature of the CPU
+        </div>
+    </div>
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="raspberry pi unit screenshot" alt="raspberry pi unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="raspberry pi unit configuration" alt="ping raspberry pi configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/raspberry_pi/unit_raspberry_pi_cpu_temp" target="_blank">Source code of the unit</a>
+</div>
+
+{#bottom.html#}

@@ -1,0 +1,99 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - Ping%}
+{%description=Gazer - Unit for ping-monitoring%}
+
+<h1 class="sensor_name">Ping unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit sends ICMP-requests to the remote host and measures the response time.
+    The measured time is written to the data item. It supports IPv4 only.
+    This unit allows you to monitor the network availability of devices.
+</div>
+
+<img src="unit_ping_scheme.png" title="ping unit scheme" alt="ping unit scheme" style="width: 100%; display: block; max-width: 400px; margin: 50px auto 30px auto;" />
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Destination host. It can be a domain name or a IP-address.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            FrameSize
+        </div>
+        <div class="sensor_parameter_description">
+            Size of a data block. Minimal size is 1 byte. Maximal size is 1400 bytes. The data block content is "ABCDE....XYZABCDEF.....". Optimal value of the parameter is 64 bytes.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Timeout
+        </div>
+        <div class="sensor_parameter_description">
+            Timeout in milliseconds to wait for each reply. Minimal size is 100 ms. Maximal size is 10000 ms (10 seconds). Optimal value of the parameter is 1000 (1 second).
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities. Minimal size is 100 ms. Maximal size is 10000 ms (10 seconds). Optimal value of the parameter is 1000 (1 second).
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Time
+        </div>
+        <div class="sensor_parameter_description">
+            Response time
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Address from the configuration.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            DataSize
+        </div>
+        <div class="sensor_parameter_description">
+            Size of a data block.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            IP
+        </div>
+        <div class="sensor_parameter_description">
+            IP address
+        </div>
+    </div>
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="ping unit screenshot" alt="ping unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="ping unit configuration" alt="ping unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/network/unit_ping" target="_blank">Source code of the unit</a>
+</div>
+
+{#bottom.html#}

@@ -1,0 +1,65 @@
+#cookie_notification{
+  display: none;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 390px;
+  max-width: 90%;
+  padding: 25px;
+  background-color: #000000;
+  border-color: #850;
+  border-radius: 4px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.4);
+  border: 1px solid #050;
+}
+
+#cookie_notification div{
+  margin: 0;
+  font-size: 12pt;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+
+@media (min-width: 576px){
+  #cookie_notification.show{
+    display: flex;
+  }
+  .cookie_accept{
+    margin: 0 0 0 25px;
+	min-width: 120px;
+	max-width: 120px;
+	min-height: 70px;
+	max-height: 70px;
+	color: #0A0;
+	background-color: #111;
+	border: 1px solid #050;
+	border-radius: 4px;
+  }
+  .cookie_accept:hover{
+	background-color: #020;
+  }
+}
+
+@media (max-width: 575px){
+  #cookie_notification.show{
+    display: block;
+    text-align: left;
+  }
+  .cookie_accept{
+    margin: 10px 0 0 0;
+	min-width: 120px;
+	max-width: 120px;
+	min-height: 70px;
+	max-height: 70px;
+	color: #0A0;
+	background-color: #111;
+	border: 1px solid #050;
+	border-radius: 4px;
+  }
+  .cookie_accept:hover{
+	background-color: #020;
+  }
+}

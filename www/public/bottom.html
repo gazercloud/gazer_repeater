@@ -1,0 +1,95 @@
+        </div>
+    </section>
+</main>
+<section class="bottom">
+    <div class="wrapper">
+        <div class="dark_block" style="background-color: #181818;">
+            <div class="bottom_columns">
+                <ul class="bottom_list">
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/versions/">Versions</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/system-requirements/">System Requirements</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/faq/">FAQ</a>
+                    </li>
+                </ul>
+                <ul class="bottom_list">
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/legal/policy/">Privacy Policy</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/legal/user-agreement/">User Agreement</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/legal/">Legal Information</a>
+                    </li>
+                </ul>
+                <ul class="bottom_list">
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/contacts/">Contacts</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="/support/">Support</a>
+                    </li>
+                    <li class="bottom_item">
+                        <a class="bottom_link" href="https://home.gazer.cloud/" target="_blank">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="font-size: 8pt; text-align: center; color: #777777;">
+                Copyright © 2020-2022 Poluianov Ivan
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="cookie_notification">
+	<div>
+		This site uses cookies to offer you a better browsing experience.
+	</div>
+	<div>
+		<button class="button cookie_accept">Accept</button>
+	</div>
+</div>
+
+<script>
+function checkCookies(){
+    let cookieDate = localStorage.getItem('cookieDate');
+    let cookieNotification = document.getElementById('cookie_notification');
+    let cookieBtn = cookieNotification.querySelector('.cookie_accept');
+    if( !cookieDate || (+cookieDate + 31536000000) < Date.now() ){
+        cookieNotification.classList.add('show');
+    }
+    cookieBtn.addEventListener('click', function(){
+        localStorage.setItem( 'cookieDate', Date.now() );
+        cookieNotification.classList.remove('show');
+    })
+}
+checkCookies();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(70373842, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/70373842" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script src="js/animation.js">
+</script>
+
+</body>
+</html>
+

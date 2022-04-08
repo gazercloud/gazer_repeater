@@ -1,0 +1,84 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - TCP Connect%}
+{%description=Gazer - Unit for determining the availability of network equipment over the network (TCP)%}
+
+<h1 class="sensor_name">TCP Connect Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit tries to connect to the specified address and writes the result to the data item.
+</div>
+
+<img src="unit_tcp_connect_scheme.png" title="tcp-connect unit scheme" alt="tcp-connect unit scheme" style="width: 100%; display: block; max-width: 400px; margin: 30px auto 30px auto;" />
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Destination host
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Timeout
+        </div>
+        <div class="sensor_parameter_description">
+            Timeout in milliseconds to wait for each reply.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Time
+        </div>
+        <div class="sensor_parameter_description">
+            Result time
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Address from the configuration.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            IP
+        </div>
+        <div class="sensor_parameter_description">
+            IP address
+        </div>
+    </div>
+</div>
+
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="tcp-connect unit screenshot" alt="tcp-connect unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="tcp-connect unit configuration" alt="tcp-connect unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/network/unit_tcp_connect" target="_blank">Source code of the unit</a>
+</div>
+
+
+{#bottom.html#}

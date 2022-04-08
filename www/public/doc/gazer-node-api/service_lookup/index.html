@@ -1,0 +1,39 @@
+{#header.html#}
+
+{%title=Gazer Node API - service_lookup%}
+{%description=Gazer Node API - service_lookup - description%}
+
+<h1>service_lookup</h1>
+
+<h2>Request</h2>
+<table class="norm">
+    <tr><td>entity</td><td>string</td></tr>
+    <tr><td>parameters</td><td>string</td></tr>
+</table>
+
+<h2>Response</h2>
+<table class="norm">
+    <tr><td>result</td><td>object</td></tr>
+</table>
+
+<h2>result object</h2>
+<table class="norm">
+    <tr><td>entity</td><td>string</td></tr>
+    <tr><td>key_column</td><td>string</td></tr>
+    <tr><td>columns</td><td>array of objects</td></tr>
+    <tr><td>rows</td><td>array of objects</td></tr>
+</table>
+
+<h2>columns array</h2>
+<table class="norm">
+    <tr><td>name</td><td>string</td></tr>
+    <tr><td>display_name</td><td>string</td></tr>
+</table>
+
+<h2>rows array</h2>
+<table class="norm">
+    <tr><td>cells</td><td>array of strings</td></tr>
+</table>
+
+
+{#bottom.html#}

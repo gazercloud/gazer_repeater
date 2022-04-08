@@ -1,0 +1,93 @@
+{#header.html#}
+
+{%title=Gazer - SRV MON%}
+
+<script>
+    function createDiagViewer(elementId) {
+        let result = {
+            items: [],
+            itemsByName: {},
+            elementId: elementId,
+            getItemsValues: function () {
+                this.items.forEach((el) => {
+                    this.getItem(el.n)
+                })
+            },
+            getDiag: function() {
+                fetch("/api/request?fn=mon")
+                    .then(res => {
+                        if (res.status === 200) {
+                            res.json().then(
+                                (result) => {
+                                    console.log(result)
+                                    let elItem = document.getElementById("diagContainer")
+                                    let itemsHTML = "<table width='100%' style='font-size: 10px'>"
+                                    itemsHTML += "<tr>"
+                                    itemsHTML += "<td>Name</td>"
+                                    itemsHTML += "<td>CPU, %</td>"
+                                    itemsHTML += "<td>MemUsg, %</td>"
+                                    itemsHTML += "<td>Mem,MB</td>"
+                                    itemsHTML += "<td>FDs</td>"
+                                    itemsHTML += "<td>Conn</td>"
+                                    itemsHTML += "<td>ThCnt</td>"
+                                    itemsHTML += "<td>RCV</td>"
+                                    itemsHTML += "<td>SND</td>"
+                                    itemsHTML += "<td>STATE</td>"
+                                    itemsHTML += "<td>Status</td>"
+                                    itemsHTML += "</tr>"
+
+                                    result.forEach((el) => {
+                                        itemsHTML += "<tr>"
+                                        itemsHTML += "<td>" + el.name + "</td>"
+                                        itemsHTML += "<td>" + el.cpu_usage.toFixed(0) + "</td>"
+                                        itemsHTML += "<td>" + el.mem_usage.toFixed(0) + "</td>"
+                                        itemsHTML += "<td>" + el.mem.toFixed(0) + "</td>"
+                                        itemsHTML += "<td>" + el.f_ds + "</td>"
+                                        itemsHTML += "<td>" + el.connections + "</td>"
+                                        itemsHTML += "<td>" + el.threads_count + "</td>"
+                                        itemsHTML += "<td>" + (el.traffic_in / 1024).toFixed(1) + " KB/sec</td>"
+                                        itemsHTML += "<td>" + (el.traffic_out / 1024).toFixed(1) + " KB/sec</td>"
+                                        itemsHTML += "<td>" + el.inner_state + "</td>"
+                                        itemsHTML += "<td>" + el.status + "</td>"
+                                        itemsHTML += "</tr>"
+                                    })
+                                    itemsHTML += "</table>"
+                                    elItem.innerHTML = itemsHTML
+                                }
+                            );
+                        } else {
+                            res.json().then(
+                                (result) => {
+                                    //setErrorMessage(result.error)
+                                }
+                            );
+                        }
+                    })
+                    .catch((err) => {
+                        //setErrorMessage("Unknown error")
+                    })
+            },
+        }
+
+        return result
+    }
+
+</script>
+
+<h1>Gazer Servers Monitoring</h1>
+<pre id="diagContainer">
+</pre>
+
+<script>
+    let c = createDiagViewer()
+    c.getDiag()
+
+    setInterval(
+        () => {
+            c.getDiag()
+        },
+        500
+    );
+</script>
+
+{#bottom.html#}

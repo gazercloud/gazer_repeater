@@ -1,0 +1,37 @@
+﻿{#header.html#}
+
+{%title=Gazer - Whatever You Want%}
+{%description=Gazer - Whatever You Want. General Sensors.%}
+
+<h1>Whatever You Want</h1>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
+    <div style="max-width: 700px;">
+        <p>
+            Using special sensors you can obtain data from different sources.
+            You can create a script or a program for fetching data using your favorite programming language.
+            All you need - write to standard output stream like this:
+        </p>
+        <div class="dark_block">
+<pre style="font-size: 12px">
+printf("param1=%d\r\n", 42)
+printf("param2=%s\r\n", "Hello World")
+</pre>
+        </div>
+        <p>
+            Then add the <a href="/sensors/general/cgi-key-value">CGI Key=Value sensor</a> to Gazer and specify the full path to the executable file. It's all.
+        </p>
+        <p>
+            If you want to write the complete result of the program execution into one data item, use the <a href="/sensors/general/cgi">CGI sensor</a>.
+        </p>
+    </div>
+    <div style="align-self: center">
+        <img src="/use-cases/whatever-you-want/CGI.png" alt="CGI sensor" />
+    </div>
+</div>
+
+<h2>Relevant Sensors</h2>
+<li><a href="/sensors/general/cgi">CGI sensor</a></li>
+<li><a href="/sensors/general/cgi-key-value">CGI Key=Value Sensor</a></li>
+
+{#bottom.html#}

@@ -1,0 +1,93 @@
+﻿{#header.html#}
+
+{%title=Gazer - Sensor - Serial Port Key Value%}
+{%description=Gazer - Sensor for monitoring devices via Serial Port ... like Arduino%}
+
+<h1 class="sensor_name">Serial Port Key=Value sensor</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The sensor can receive information via the serial port in the key=value format.
+    The sensor requires each data item to be written on a separate line.
+    The item name is placed before the equal sign(=), and the value is placed after it.
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Port
+        </div>
+        <div class="sensor_parameter_description">
+            Serial Port name. Example: <b>COM9</b>.
+        </div>
+    </div>
+
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Baud
+        </div>
+        <div class="sensor_parameter_description">
+            Bits per second. Allowed values: 75 - 128000
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            DataSize
+        </div>
+        <div class="sensor_parameter_description">
+            4 - 8 bits
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Parity
+        </div>
+        <div class="sensor_parameter_description">
+            A parity bit is a bit added to a string of binary code. Allowed values: none, odd, even, mark, space.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            StopBits
+        </div>
+        <div class="sensor_parameter_description">
+            Stop bits. Allowed values: 1, 1.2, 2
+        </div>
+    </div>
+
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            ReceiveAll
+        </div>
+        <div class="sensor_parameter_description">
+            Accept all values, not just those specifically listed
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Items
+        </div>
+        <div class="sensor_parameter_description">
+            The list of data items to be accepted if the "ReceiveAll" checkbox is not specified.
+            For each item, you can specify the unit of measure and scaling options.
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_data_items">
+    The sensor generates a different number of items depending on the input data.
+    For example: through Serial Port were received two strings with the following content:
+    <pre>
+        item1=42
+        item2=42.42
+    </pre>
+    As a result, two elements with the corresponding values will be set.
+</div>
+
+<h2>Screenshots</h2>
+
+<img src="/img/serial-port-key-value-settings.png"/>
+
+{#bottom.html#}

@@ -1,0 +1,56 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - File Content%}
+{%description=Gazer - Unit for receiving data from a file%}
+
+<h1 class="sensor_name">File Content Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit reads the file contents and writes it to the data item. The maximum size to be read is 1 kilobyte.
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            File Name
+        </div>
+        <div class="sensor_parameter_description">
+            The absolute path to the file to read
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Content
+        </div>
+        <div class="sensor_parameter_description">
+            Content of the file
+        </div>
+    </div>
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="file-content unit screenshot" alt="file-content unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="file-content unit configuration" alt="file-content unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/files/unit_filecontent" target="_blank">Source code of the unit</a>
+</div>
+
+
+{#bottom.html#}

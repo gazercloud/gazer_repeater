@@ -1,0 +1,61 @@
+﻿{#header.html#}
+
+{%title=Gazer - Sensor - CGI%}
+{%description=Gazer - Sensor for receiving data from an external program %}
+
+<h1 class="sensor_name">CGI sensor</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    CGI is an interface for requesting information through the command line interface.
+    The sensor reads the output stream of the external program.
+    All external program output is written to the data item.
+    In fact, this sensor allows you transfer a file content to the cloud in real time.
+    For more information: <a href="https://en.wikipedia.org/wiki/Common_Gateway_Interface">CGI (Wikipedia)</a>
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Command
+        </div>
+        <div class="sensor_parameter_description">
+            The absolute path to the file to execute
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Arguments
+        </div>
+        <div class="sensor_parameter_description">
+            Arguments for the specified command
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_data_items">
+    All program output is written to the data item "Result"
+</div>
+
+<h2>Pictures</h2>
+<div style="text-align: center">Screenshot</div>
+<img src="screen.png" title="cgi unit screenshot" alt="cgi unit screenshot" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="cgi unit configuration" alt="cgi unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/general/unit_general_cgi" target="_blank">Source code of the unit</a>
+</div>
+
+
+{#bottom.html#}

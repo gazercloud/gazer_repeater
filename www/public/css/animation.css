@@ -1,0 +1,44 @@
+.ani {
+  opacity: 0;
+}
+
+.ani.ani-show {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.ani2 {
+  opacity: 0;
+}
+
+.ani2.ani2-show {
+  opacity: 1;
+  transition: opacity 2s;
+}
+
+.ani3 {
+  opacity: 0;
+}
+
+.ani3.ani3-show {
+  opacity: 1;
+  transition: opacity 3s;
+}
+
+.ani4 {
+  opacity: 0;
+}
+
+.ani4.ani4-show {
+  opacity: 1;
+  transition: opacity 4s;
+}
+
+.ani5 {
+  opacity: 0;
+}
+
+.ani5.ani5-show {
+  opacity: 1;
+  transition: opacity 5s;
+}

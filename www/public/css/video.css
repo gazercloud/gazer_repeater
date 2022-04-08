@@ -1,0 +1,44 @@
+@supports (-webkit-touch-callout: none) {
+.video-container {
+	display: none;
+	}
+}
+
+@supports not (-webkit-touch-callout: none) {
+.video-container {
+  position: relative;
+  text-align: center;
+  color: white;
+	}
+}
+
+.video-text-bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.video-text-top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.video-text-top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.video-text-bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.video-text-centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

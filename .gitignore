@@ -1,0 +1,6 @@
+.idea/
+*.exe
+*.db
+*.pfx
+bin/
+!bin/www/

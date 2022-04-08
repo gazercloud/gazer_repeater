@@ -1,0 +1,132 @@
+{#header.html#}
+
+{%title=Alternative To Arduino Plotter%}
+{%description=Monitoring the activity of Windows network interfaces%}
+
+<h1>Alternative To Arduino Plotter</h1>
+<div>
+    <p>The standard Arduino plotter doesn't have very many features.</p>
+    <p>GazerNode can be used to replace the standard Arduino IDE plotter.</p>
+    <p>This provides the following benefits:</p>
+    <li>receiving several parameters from Arduino at the same time;</li>
+    <li>analysis of the history of changes in parameter values on charts;</li>
+    <li>displaying data on a mnemonic diagram for supervisory control;</li>
+    <li>export of the history of changing parameter values to CSV files for further analysis in Excel;</li>
+    <li>remote access to data via the Internet;</li>
+    <li>sharing the parameter's values on public channels.</li>
+</div>
+
+<h2>How to do this</h2>
+<h3>1. Install GazerNode</h3>
+<div>
+    <a href="/download/" target="_blank">Download</a>
+</div>
+<h3>2. Add Serial Port Unit to the configuration</h3>
+<div>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Add Serial Port Unit" title="Add Serial Port Unit" src="/blog/alternative-to-arduino-plotter/arduino-plotter-add-serial-port-unit.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+</div>
+<h3>3. Configure Item - specify unit of measure and scale options, if needed</h3>
+<div>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Add Serial Port Unit" title="Add Serial Port Unit" src="/blog/alternative-to-arduino-plotter/arduino-plotter-configuration.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+</div>
+<h3>4. Upload the sketch to your Arduino</h3>
+
+<h4>Test Arduino sketch - ADC</h4>
+<div class="dark_block">
+			<pre style="width: 100%">
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read metrics from ADC
+  int value1 = analogRead(A0);
+  int value2 = analogRead(A1);
+
+  // Send first metric
+  Serial.print("a1=");
+  Serial.print(value1);
+  Serial.println();
+
+  // Send second metric
+  Serial.print("a2=");
+  Serial.print(value2);
+  Serial.println();
+
+  delay(500); // Wait
+}
+			</pre>
+</div>
+
+<h4>DS18B20 Arduino sketch</h4>
+<div class="dark_block">
+<pre style="width: 100%">
+
+#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+
+#define ONE_WIRE_BUS 2
+
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+
+void setup(void)
+{
+ Serial.begin(9600);
+ sensors.begin();
+}
+
+void loop(void)
+{
+  sensors.requestTemperatures();
+  double value1 = sensors.getTempCByIndex(0);
+  if (value1 > -20 && value1 < 100) {
+    Serial.print("temperature=");
+    Serial.print(value1);
+    Serial.println();
+  }
+  delay(500);
+}
+</pre>
+</div>
+
+<h3>5. Watch the current values and charts</h3>
+<div>
+    <h4>Data Items</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter Data Items" title="Arduino Plotter Data Items" src="/blog/alternative-to-arduino-plotter/arduino-plotter-data-items.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+    <h4>Chart</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter Data Items" title="Arduino Plotter Data Items" src="/blog/alternative-to-arduino-plotter/arduino-plotter-chart.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+    <h4>Chart - Statistics</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter Data Items" title="Arduino Plotter Data Items" src="/blog/alternative-to-arduino-plotter/arduino-plotter-chart-statistics.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+</div>
+
+<h3>6. Export data to CSV</h3>
+<div>
+    <h4>Show Item's History</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter Item History Menu" title="Arduino Plotter Item History Menu" src="/blog/alternative-to-arduino-plotter/arduino-plotter-item-history-menu.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+    <h4>Item's History</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter Item History" title="Arduino Plotter Item History" src="/blog/alternative-to-arduino-plotter/arduino-plotter-item-history.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+    <h4>Export Settings</h4>
+    <div style="text-align: center; margin: 20px">
+        <img alt="Arduino Plotter - Export to CSV format" title="Arduino Plotter - Export to CSV format" src="/blog/alternative-to-arduino-plotter/arduino-plotter-export-to-csv.png" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;"/>
+    </div>
+</div>
+
+<h2>Relevant Sensors</h2>
+<li><a href="/unit-types/serial-port/serial-port-key-value/">Serial Port Key=Value Unit</a></li>
+
+{#bottom.html#}

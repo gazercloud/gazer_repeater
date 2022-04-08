@@ -1,0 +1,87 @@
+{#header.html#}
+
+{%title=Gazer - Unit - PostgreSQL%}
+{%description=Gazer - Unit executes SQL-query on PG-server%}
+
+<h1 class="sensor_name">PostgreSQL</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The unit executes SQL-query on server and puts the result to data items.
+    The unit has two modes: scalar and table. In scalar mode the unit expects one scalar value in the result.
+    In table mode the unit expects a table with two or three columns:
+    <li>Name</li>
+    <li>Value</li>
+    <li>UOM (optional)</li>
+    The names of the columns are not important. The third column may not exist.
+    For example:
+    <div>select 'nameOfItem', 42.42, 'uom'</div>
+    returns one record. The unit puts 42.42 to the data item 'nameOfItem' with the unit of measure 'uom'.
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Address of the server.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            User
+        </div>
+        <div class="sensor_parameter_description">
+            User's name.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Password
+        </div>
+        <div class="sensor_parameter_description">
+            The password of the user.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Database
+        </div>
+        <div class="sensor_parameter_description">
+            The name of the database.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Query
+        </div>
+        <div class="sensor_parameter_description">
+            SQL-query
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            As table
+        </div>
+        <div class="sensor_parameter_description">
+            Switches on the table mode. Using scalar mode when the checkbox is unchecked.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+</div>
+
+<h2>Data Items</h2>
+<div class="sensor_data_items">
+    In scalar mode the unit puts value to the data item 'Result'. In table mode the unit gets the names of the items from the returned rows.
+</div>
+
+{#bottom.html#}

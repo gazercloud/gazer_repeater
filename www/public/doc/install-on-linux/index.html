@@ -1,0 +1,53 @@
+﻿{#header.html#}
+
+{%title=GazerNode - Installation on Linux%}
+
+<h1>Installation on Linux / MacOS</h1>
+
+<h2>Download</h2>
+
+<h3>Linux x64</h3>
+<div class="dark_block">
+<pre style="width: 100%">
+wget https://gazer.cloud/download/2-4-4/linux_amd64/gazer_node_amd64
+</pre>
+</div>
+
+<h3>Linux arm 32</h3>
+<div class="dark_block">
+<pre style="width: 100%">
+wget https://gazer.cloud/download/2-4-4/linux_arm32/gazer_node_arm
+</pre>
+</div>
+
+<h3>Linux arm 64</h3>
+<div class="dark_block">
+<pre style="width: 100%">
+wget https://gazer.cloud/download/2-4-4/linux_arm64/gazer_node_arm64
+</pre>
+</div>
+
+<h2>Mark as an executable file</h2>
+<div class="dark_block">
+<pre style="width: 100%">
+chmod 755 gazer_node_amd64
+</pre>
+</div>
+
+<h2>Installation as a service</h2>
+<div class="dark_block">
+<pre style="width: 100%">
+./gazer_node_amd64 -install
+./gazer_node_amd64 -start
+</pre>
+</div>
+
+<h2>Uninstall the Gazer service</h2>
+<div class="dark_block">
+<pre style="width: 100%">
+./gazer_node_amd64 -stop
+./gazer_node_amd64 -uninstall
+</pre>
+</div>
+
+{#bottom.html#}

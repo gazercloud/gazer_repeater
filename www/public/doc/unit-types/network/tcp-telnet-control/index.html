@@ -1,0 +1,71 @@
+﻿{#header.html#}
+
+{%title=Gazer - Unit - TCP Telnet Control%}
+{%description=Gazer - Unit for control device via TCP%}
+
+<h1 class="sensor_name">TCP Telnet Control Unit</h1>
+
+<h2>Description</h2>
+<div class="sensor_description">
+    The Unit for control a device via TCP
+</div>
+
+<h2>Parameters</h2>
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Address
+        </div>
+        <div class="sensor_parameter_description">
+            Destination host
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Timeout
+        </div>
+        <div class="sensor_parameter_description">
+            Timeout in milliseconds to wait for each reply.
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Period
+        </div>
+        <div class="sensor_parameter_description">
+            The period between sensor activities
+        </div>
+    </div>
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Items
+        </div>
+        <div class="sensor_parameter_description">
+            elements to send to the server in string format
+        </div>
+    </div></div>
+
+<h2>Data Items</h2>
+
+<div class="sensor_parameters">
+    <div class="sensor_parameter">
+        <div class="sensor_parameter_name">
+            Status
+        </div>
+        <div class="sensor_parameter_description">
+            status
+        </div>
+    </div>
+</div>
+
+
+<h2>Pictures</h2>
+<div style="text-align: center">Configuration</div>
+<img src="config.png" title="tcp-telnet-control unit configuration" alt="tcp-telnet-control unit configuration" style="width: 100%; display: block; max-width: 600px; margin: 10px auto 30px auto;" />
+
+<div class="dark_block" style="text-align: center; margin: 10px;">
+    <a href="https://github.com/gazercloud/gazernode/tree/main/system/units/network/unit_tcp_control" target="_blank">Source code of the unit</a>
+</div>
+
+
+{#bottom.html#}
