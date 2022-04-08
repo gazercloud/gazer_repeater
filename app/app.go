@@ -68,6 +68,12 @@ func RunDesktop() {
 	Start()
 	fmt.Scanln()
 	logger.Println("[app]", "Console application exit")
+	fmt.Scanln()
+	logger.Println("[app]", "Console application exit")
+	fmt.Scanln()
+	logger.Println("[app]", "Console application exit")
+	fmt.Scanln()
+	logger.Println("[app]", "Console application exit")
 }
 
 func RunAsService() error {
