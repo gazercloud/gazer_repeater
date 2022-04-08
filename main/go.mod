@@ -2,7 +2,7 @@ module gazer_repeater
 
 go 1.17
 
-require github.com/gazercloud/gazer_repeater v1.0.0
+require github.com/gazercloud/gazer_repeater v1.0.5
 
 require (
 	github.com/gorilla/mux v1.8.0 // indirect
