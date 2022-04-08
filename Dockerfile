@@ -4,7 +4,7 @@ ARG VERSION=dev
 
 WORKDIR /go/src/app
 COPY main/main.go .
-COPY main/go1.mod .
+COPY main/go.mod .
 RUN go mod tidy
 RUN go build -o main -ldflags=-X=main.version=${VERSION} main.go
 

@@ -64,7 +64,7 @@ func Stop() {
 }
 
 func RunDesktop() {
-	logger.Println("[app]", "Running as console application")
+	logger.Println("[app]", "Running as console application1")
 	Start()
 	for {
 		time.Sleep(1 * time.Second)
