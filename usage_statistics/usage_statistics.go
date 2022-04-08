@@ -1,5 +1,6 @@
 package usage_statistics
 
+/*
 import "github.com/gazercloud/gazer_repeater/hostid"
 
 type UsageStatistics struct {
@@ -7,3 +8,4 @@ type UsageStatistics struct {
 	Comment      string
 	SensorsCount int
 }
+*/
