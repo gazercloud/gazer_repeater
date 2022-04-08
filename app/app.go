@@ -66,6 +66,10 @@ func Stop() {
 func RunDesktop() {
 	logger.Println("[app]", "Running as console application")
 	Start()
+	for {
+		time.Sleep(1 * time.Second)
+		logger.Println("[app]", "processing")
+	}
 	fmt.Scanln()
 	logger.Println("[app]", "Console application exit")
 	fmt.Scanln()
