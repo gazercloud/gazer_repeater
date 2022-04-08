@@ -330,7 +330,7 @@ func (c *HttpServer) processFileLocal(w http.ResponseWriter, r *http.Request) {
 	logger.Println("[HttpServer]", "getting file: ", urlPath, "filePath:", filePath)
 
 	//res, err := webapp.GetAsset(filePath)
-	res, err := os.ReadFile(filePath)
+	res, err := ioutil.ReadFile(filePath)
 	if err == nil {
 		_, _ = w.Write(res)
 	} else {
