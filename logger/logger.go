@@ -165,7 +165,7 @@ func CheckLogFile() {
 func Println(v ...interface{}) {
 	CheckLogFile()
 	if loggerObject != nil {
-		loggerObject.Println(v)
+		loggerObject.Println(v...)
 	}
 	fmt.Print(time.Now().UTC().Format("2006-01-02 15:04:05.999"), " ")
 	fmt.Println(v...)
@@ -174,7 +174,7 @@ func Println(v ...interface{}) {
 func Error(v ...interface{}) {
 	CheckLogFile()
 	if loggerObject != nil {
-		loggerObject.Println(v)
+		loggerObject.Println(v...)
 	}
 	fmt.Print(time.Now().UTC().Format("2006-01-02 15:04:05.999"), " ")
 	fmt.Println(v...)

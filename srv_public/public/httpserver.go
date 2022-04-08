@@ -83,7 +83,7 @@ func (c *HttpServer) Start() {
 
 	go func() {
 		if err := http.ListenAndServe(":80", http.HandlerFunc(c.redirectTLS)); err != nil {
-			logger.Println("ListenAndServe (redirectTLS) error: %v", err)
+			logger.Println("ListenAndServe (redirectTLS) error:", err)
 		}
 	}()
 }
