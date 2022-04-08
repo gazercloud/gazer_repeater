@@ -3,9 +3,9 @@ FROM golang:1.16.4-buster AS builder
 ARG VERSION=dev
 
 WORKDIR /go/src/app
-COPY main.go .
-COPY go.mod .
-RUN go get ./...
+COPY main/main.go .
+COPY main/go.mod .
+RUN go mod tidy
 RUN go build -o main -ldflags=-X=main.version=${VERSION} main.go
 
 FROM debian:buster-slim
