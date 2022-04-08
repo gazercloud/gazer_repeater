@@ -2,13 +2,13 @@ package app
 
 import (
 	"fmt"
-	"http-server.org/gazer/credentials"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/srv_public/public"
-	"http-server.org/gazer/srv_repeater"
-	"http-server.org/gazer/starter"
-	"http-server.org/gazer/state"
-	"http-server.org/gazer/traffic_control"
+	"github.com/gazercloud/gazer_repeater/credentials"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/srv_public/public"
+	"github.com/gazercloud/gazer_repeater/srv_repeater"
+	"github.com/gazercloud/gazer_repeater/starter"
+	"github.com/gazercloud/gazer_repeater/state"
+	"github.com/gazercloud/gazer_repeater/traffic_control"
 	"time"
 )
 

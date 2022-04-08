@@ -1,9 +1,9 @@
 package storage
 
 import (
+	"github.com/gazercloud/gazer_repeater/credentials"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"github.com/jackc/pgx"
-	"http-server.org/gazer/credentials"
-	"http-server.org/gazer/logger"
 	"sync"
 )
 

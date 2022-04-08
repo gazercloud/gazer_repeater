@@ -3,9 +3,9 @@ package srv_repeater
 import (
 	"crypto/tls"
 	"encoding/hex"
-	"http-server.org/gazer/credentials"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/traffic_control"
+	"github.com/gazercloud/gazer_repeater/credentials"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/traffic_control"
 	"log"
 	"net"
 	"sync"

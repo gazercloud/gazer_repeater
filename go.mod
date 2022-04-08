@@ -1,4 +1,4 @@
-module http-server.org/gazer
+module github.com/gazercloud/gazer_repeater
 
 go 1.16
 

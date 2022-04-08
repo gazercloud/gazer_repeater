@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/gazercloud/gazer_repeater/product/productinfo"
 	"github.com/josephspurrier/goversioninfo"
-	"http-server.org/gazer/product/productinfo"
 	"io/ioutil"
 	"log"
 	"os"

@@ -2,7 +2,7 @@ package srv_repeater
 
 import (
 	"fmt"
-	"http-server.org/gazer/logger"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"math/rand"
 	"sync"
 	"time"

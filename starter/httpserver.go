@@ -6,10 +6,10 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"github.com/gazercloud/gazer_repeater/credentials"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/storage"
 	"github.com/gorilla/mux"
-	"http-server.org/gazer/credentials"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/storage"
 	"net/http"
 )
 

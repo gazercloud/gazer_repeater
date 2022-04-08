@@ -1,7 +1,7 @@
 package traffic_logger
 
 import (
-	"http-server.org/gazer/logger"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"os"
 	"path/filepath"
 	"strings"

@@ -1,7 +1,7 @@
 package traffic_control
 
 import (
-	"http-server.org/gazer/tools"
+	"github.com/gazercloud/gazer_repeater/tools"
 	"sync"
 	"time"
 )

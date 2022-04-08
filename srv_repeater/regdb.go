@@ -3,9 +3,9 @@ package srv_repeater
 import (
 	"encoding/json"
 	"errors"
-	"http-server.org/gazer/client"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/storage"
+	"github.com/gazercloud/gazer_repeater/client"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/storage"
 	"sort"
 	"sync"
 	"time"

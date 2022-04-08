@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
-	"http-server.org/gazer/storage"
+	"github.com/gazercloud/gazer_repeater/storage"
 )
 
 func (c *SrvRepeater) SessionOpen(requestText []byte) ([]byte, error) {

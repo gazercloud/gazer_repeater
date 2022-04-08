@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/storage"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/storage"
 	"regexp"
 	"strings"
 )

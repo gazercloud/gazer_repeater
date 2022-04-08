@@ -3,8 +3,8 @@ package srv_repeater
 import (
 	"crypto/tls"
 	"encoding/binary"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/tools"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/tools"
 	"net"
 	"sync"
 	"time"

@@ -1,6 +1,6 @@
 package usage_statistics
 
-import "http-server.org/gazer/hostid"
+import "github.com/gazercloud/gazer_repeater/hostid"
 
 type UsageStatistics struct {
 	HostId       hostid.HostId `json:"host_id"`

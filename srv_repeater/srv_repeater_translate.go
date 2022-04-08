@@ -3,7 +3,7 @@ package srv_repeater
 import (
 	"errors"
 	"fmt"
-	"http-server.org/gazer/storage"
+	"github.com/gazercloud/gazer_repeater/storage"
 	"math/rand"
 	"strconv"
 	"time"

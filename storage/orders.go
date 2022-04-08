@@ -2,8 +2,8 @@ package storage
 
 import (
 	"errors"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"github.com/jackc/pgx"
-	"http-server.org/gazer/logger"
 )
 
 func (c *Storage) AddOrder(userId int64, name string, key string, active bool, product string, quantity int64, price float64, rawData string) (orderId int64, err error) {

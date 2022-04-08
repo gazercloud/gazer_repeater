@@ -1,9 +1,9 @@
 package main
 
 import (
-	"http-server.org/gazer/app"
-	"http-server.org/gazer/application"
-	"http-server.org/gazer/logger"
+	"github.com/gazercloud/gazer_repeater/app"
+	"github.com/gazercloud/gazer_repeater/application"
+	"github.com/gazercloud/gazer_repeater/logger"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package public
 import (
 	"encoding/json"
 	"errors"
-	"http-server.org/gazer/logger"
-	"http-server.org/gazer/state"
+	"github.com/gazercloud/gazer_repeater/logger"
+	"github.com/gazercloud/gazer_repeater/state"
 	"sync"
 )
 

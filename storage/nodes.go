@@ -2,8 +2,8 @@ package storage
 
 import (
 	"errors"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"github.com/jackc/pgx"
-	"http-server.org/gazer/logger"
 	"strconv"
 )
 

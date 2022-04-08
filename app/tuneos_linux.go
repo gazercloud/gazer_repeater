@@ -1,7 +1,7 @@
 package app
 
 import (
-	"http-server.org/gazer/logger"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"syscall"
 )
 

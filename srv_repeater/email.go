@@ -2,8 +2,8 @@ package srv_repeater
 
 import (
 	"fmt"
-	"http-server.org/gazer/credentials"
-	"http-server.org/gazer/logger"
+	"github.com/gazercloud/gazer_repeater/credentials"
+	"github.com/gazercloud/gazer_repeater/logger"
 	"net/smtp"
 )
 
